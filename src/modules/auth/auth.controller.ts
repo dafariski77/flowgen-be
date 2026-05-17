@@ -4,9 +4,11 @@ import {
   Body,
   Get,
   Req,
+  Res,
   UseGuards,
   HttpStatus,
 } from "@nestjs/common";
+import type { Response } from "express";
 import { ApiTags, ApiOperation, ApiResponse } from "@nestjs/swagger";
 import { AuthService } from "./auth.service";
 import { RegisterDto } from "./dto/register.dto";
@@ -46,22 +48,38 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  @Get("google")
-  @UseGuards(AuthGuard("google"))
-  @ApiOperation({ summary: "Initiate Google OAuth login" })
-  async googleAuth(@Req() req) {
-    // Initiates the Google OAuth flow
+  @Get("google/url")
+  @ApiOperation({ summary: "Get Google OAuth redirect URL" })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: "Returns the Google OAuth URL for frontend redirect.",
+  })
+  getGoogleAuthUrl() {
+    const clientId = process.env.GOOGLE_CLIENT_ID || "client-id";
+    const callbackUrl =
+      process.env.GOOGLE_CALLBACK_URL ||
+      "http://localhost:3000/auth/google/callback";
+    const scope = encodeURIComponent("email profile");
+
+    const url =
+      `https://accounts.google.com/o/oauth2/v2/auth` +
+      `?client_id=${clientId}` +
+      `&redirect_uri=${encodeURIComponent(callbackUrl)}` +
+      `&response_type=code` +
+      `&scope=${scope}` +
+      `&access_type=offline` +
+      `&prompt=consent`;
+
+    return { url };
   }
 
   @Get("google/callback")
   @UseGuards(AuthGuard("google"))
-  @ApiOperation({ summary: "Google OAuth callback URL" })
-  @ApiResponse({
-    status: HttpStatus.OK,
-    description: "Successful login returning JWT.",
-  })
-  async googleAuthRedirect(@Req() req) {
-    return this.authService.googleLogin(req.user);
+  @ApiOperation({ summary: "Google OAuth callback — redirects to frontend" })
+  async googleAuthRedirect(@Req() req, @Res() res: Response) {
+    const { access_token } = await this.authService.googleLogin(req.user);
+    const frontendUrl = process.env.FRONTEND_URL || "http://localhost:3001";
+    res.redirect(`${frontendUrl}/api/auth/callback?token=${access_token}`);
   }
 
   @Get("me")

@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.env
+*.md
+.gitignore
+jest.config.js
+drizzle.config.ts
+showcase.html
+**/*.spec.ts
