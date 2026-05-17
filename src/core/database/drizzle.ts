@@ -5,6 +5,8 @@ import { Pool } from "pg";
 import { usersTable } from "../schemas/user";
 import { diagramHistoryTable } from "../schemas/diagram_history";
 import { transactionsTable } from "../schemas/transactions";
+import { showcaseTable } from "../schemas/showcase";
+import { showcaseCategoryTable } from "../schemas/showcase_category";
 
 export const DRIZZLE_CONNECTION = "DRIZZLE_CONNECTION";
 
@@ -27,6 +29,8 @@ export const drizzleProvider: Provider = {
         usersTable,
         diagramHistoryTable,
         transactionsTable,
+        showcaseTable,
+        showcaseCategoryTable,
       },
     });
   },

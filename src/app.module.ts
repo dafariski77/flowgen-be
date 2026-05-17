@@ -5,9 +5,11 @@ import { UsersModule } from "./modules/users/users.module";
 import { DatabaseModule } from "./core/database/database.module";
 import { PaymentsModule } from "./modules/payments/payments.module";
 import { DiagramsModule } from "./modules/diagrams/diagrams.module";
+import { ShowcaseModule } from "./modules/showcase/showcase.module";
+import { ShowcaseCategoryModule } from "./modules/showcase-category/showcase-category.module";
 
 @Module({
-  imports: [         
+  imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -16,6 +18,8 @@ import { DiagramsModule } from "./modules/diagrams/diagrams.module";
     AuthModule,
     PaymentsModule,
     DiagramsModule,
+    ShowcaseModule,
+    ShowcaseCategoryModule,
   ],
 })
 export class AppModule {}

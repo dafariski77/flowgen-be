@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-error-container": "#ffdad6",
+                        "tertiary-container": "#ca801e",
+                        "outline-variant": "#494454",
+                        "on-tertiary-fixed": "#2c1700",
+                        "on-secondary": "#372464",
+                        "surface-bright": "#31394d",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-tint": "#d0bcff",
+                        "on-surface": "#dae2fd",
+                        "on-primary-fixed": "#23005c",
+                        "primary": "#d0bcff",
+                        "on-primary": "#3c0091",
+                        "tertiary-fixed": "#ffdcbb",
+                        "tertiary": "#ffb869",
+                        "error-container": "#93000a",
+                        "surface-dim": "#0b1326",
+                        "on-surface-variant": "#cbc3d7",
+                        "secondary-container": "#513e7f",
+                        "inverse-primary": "#6d3bd7",
+                        "surface-container-low": "#131b2e",
+                        "tertiary-fixed-dim": "#ffb869",
+                        "surface-container-high": "#222a3d",
+                        "on-secondary-container": "#c3adf7",
+                        "surface-variant": "#2d3449",
+                        "outline": "#958ea0",
+                        "surface-container-highest": "#2d3449",
+                        "background": "#0b1326",
+                        "surface-container-lowest": "#060e20",
+                        "on-background": "#dae2fd",
+                        "on-tertiary-container": "#3f2300",
+                        "primary-container": "#a078ff",
+                        "secondary-fixed": "#e9ddff",
+                        "inverse-on-surface": "#283044",
+                        "primary-fixed-dim": "#d0bcff",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container": "#171f33",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed-variant": "#673d00",
+                        "on-tertiary": "#482900",
+                        "error": "#ffb4ab",
+                        "surface": "#0b1326",
+                        "on-primary-container": "#340080",
+                        "secondary": "#d0bcff",
+                        "on-secondary-fixed-variant": "#4e3b7c",
+                        "primary-fixed": "#e9ddff",
+                        "on-secondary-fixed": "#220b4e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "display": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+        .glass-panel {
+            background: rgba(49, 57, 77, 0.6);
+            backdrop-filter: blur(20px);
+        }
+        .no-line-boundary {
+            border: none !important;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl shadow-[0_32px_64px_-12px_rgba(218,226,253,0.08)]">
+<nav class="flex justify-between items-center h-16 px-8 w-full">
+<div class="flex items-center gap-8">
+<span class="text-headline-sm font-display font-black tracking-tighter text-on-surface">FlowGen AI</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body text-label-md tracking-wider" href="#">Showcase</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body text-label-md tracking-wider" href="#">Templates</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body text-label-md tracking-wider" href="#">Pricing</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-body text-label-md tracking-wider" href="#">Documentation</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-bright/20 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-bright/20 transition-all duration-300 rounded-lg active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet">account_balance_wallet</span>
+</button>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-6 py-2 rounded-md active:scale-95 transition-transform text-label-md">
+                    Get Started
+                </button>
+</div>
+</nav>
+</header>
+<main class="pt-24 pb-12 px-8 max-w-7xl mx-auto">
+<!-- Breadcrumb / Header Title -->
+<div class="mb-12">
+<div class="flex items-center gap-2 text-label-md text-on-surface-variant uppercase tracking-widest mb-4">
+<span>Showcase</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface">Infrastructure</span>
+</div>
+<h1 class="text-5xl font-display font-extrabold text-on-surface tracking-tighter">Global Payment Gateway Architecture</h1>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Content Left (Large Preview & Prompt) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Large Architectural Preview -->
+<div class="relative group rounded-xl overflow-hidden bg-surface-container-lowest ring-1 ring-outline-variant/15">
+<img class="w-full aspect-video object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500" data-alt="A highly detailed and complex architectural diagram of a global payment gateway network presented in a dark mode aesthetic. Glowing violet and cyan lines connect intricate white nodes representing microservices, database clusters, and security layers. The background is a deep nocturnal blue with a subtle grid pattern, giving it the feel of a high-tech digital blueprint or a professional infrastructure monitoring dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALt2HLBFewFP5x7RXvs8Gk8CTRXOHdjwVslD-pAHWHOHYzlLu2whq3mrO3hK8yE72I0MJydlcjiYDCm461SvlNd6TC2lNjiHE_rmbHBmPKN-1dANlPIeyaH7naTKpw16JY5xgnedFHX0J2TzbxjmCXGVVDG4RpwDbQxoncKEjNLNhBlTr6Nw5eePfb8M7bbnZ8KGCbegJAKAoFrbRoQ6Zc-ec16ON3fKYaIeZzn0bAwuCy4dB7LWiU8eNwR7FQthYNtPERW2X3TWvk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute top-4 right-4 flex gap-2">
+<span class="glass-panel px-3 py-1 rounded-full text-[10px] font-mono text-tertiary flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                            STABLE_BUILD_V2
+                        </span>
+</div>
+</div>
+<!-- Technical Blueprint Section -->
+<section class="bg-surface-container-low rounded-xl p-8 ring-1 ring-outline-variant/15">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-headline-sm font-bold text-on-surface">Technical Blueprint</h2>
+<span class="font-mono text-body-sm text-on-surface-variant bg-surface-container-lowest px-3 py-1 rounded">PROMPT_ENGINE_v4.2</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-6 relative group overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary opacity-50"></div>
+<p class="font-mono text-on-surface-variant leading-relaxed italic">
+                            "Design a high-availability microservices payment gateway architecture handling multiple currencies and real-time fraud detection."
+                        </p>
+<button class="absolute right-4 top-4 p-2 opacity-0 group-hover:opacity-100 transition-opacity text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined">content_copy</span>
+</button>
+</div>
+<div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<h4 class="text-label-md text-on-surface-variant uppercase tracking-widest">Logic Flow</h4>
+<p class="text-body-sm text-on-surface/80">Proprietary asynchronous event-sourcing pattern utilized for ACID compliance across multi-region edge nodes.</p>
+</div>
+<div class="space-y-2">
+<h4 class="text-label-md text-on-surface-variant uppercase tracking-widest">Security Layer</h4>
+<p class="text-body-sm text-on-surface/80">TLS 1.3 enforced with automated rotation of cryptographic secrets via HSM-integrated micro-vaults.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Content Right (Metadata Sidebar) -->
+<aside class="lg:col-span-4 space-y-6 sticky top-24">
+<div class="bg-surface-container-low rounded-xl p-6 ring-1 ring-outline-variant/15">
+<h3 class="text-label-md text-on-surface-variant uppercase tracking-widest mb-6">System Parameters</h3>
+<div class="space-y-4 font-mono">
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-body-sm">Type</span>
+<span class="text-on-surface text-body-sm font-bold">Architecture</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-body-sm">Nodes</span>
+<span class="text-on-surface text-body-sm font-bold">24</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-body-sm">Complexity</span>
+<div class="flex gap-1">
+<div class="w-3 h-1 bg-primary rounded-full"></div>
+<div class="w-3 h-1 bg-primary rounded-full"></div>
+<div class="w-3 h-1 bg-primary rounded-full"></div>
+<div class="w-3 h-1 bg-outline-variant rounded-full"></div>
+</div>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/10">
+<span class="text-on-surface-variant text-body-sm">Est. Credits</span>
+<div class="glass-panel px-3 py-1 rounded-full text-secondary-fixed-dim text-body-sm flex items-center gap-1">
+                                5 <span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-3">
+<span class="text-on-surface-variant text-body-sm">Created by</span>
+<span class="text-primary text-body-sm font-bold">FlowGen Core</span>
+</div>
+</div>
+<div class="mt-8 space-y-3">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold py-4 rounded-md active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">restart_alt</span>
+                            Remix this Logic
+                        </button>
+<button class="w-full bg-surface-container-highest/50 border border-outline-variant/20 hover:bg-surface-container-highest text-on-surface font-bold py-4 rounded-md active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                            Download SVG
+                        </button>
+</div>
+</div>
+<div class="bg-secondary-container/10 rounded-xl p-6 ring-1 ring-secondary/20">
+<p class="text-on-secondary-container text-body-sm leading-relaxed">
+<span class="font-bold text-secondary">Pro Tip:</span> This blueprint is optimized for Google Cloud deployment but can be remixed for AWS or Azure using the 'Environment' flag.
+                    </p>
+</div>
+</aside>
+</div>
+<!-- Similar Blueprints Carousel -->
+<section class="mt-20">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-display font-bold text-on-surface">Similar Blueprints</h2>
+<div class="flex gap-2">
+<button class="p-2 rounded-full border border-outline-variant/20 hover:bg-surface-container-high transition-colors text-on-surface">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-full border border-outline-variant/20 hover:bg-surface-container-high transition-colors text-on-surface">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-lg overflow-hidden mb-4 bg-surface-container-low ring-1 ring-outline-variant/15 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A macro shot of a complex circuit board illuminated by neon purple light, symbolizing high-security cyber architecture. Glowing digital data streams flow between integrated components in a high-contrast dark environment. The visual style is crisp, technological, and futuristic with a heavy emphasis on depth and light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpjMGB748YVPBbZ075uFOuHud7v2dNfw7pWt3xoBumuBnXfGx47AfMVDdF45UKqwFbvKMimYpZIDtme4nbm2v-IF7Vyp8DbZaKE42fpEfX_440xqhyll9M5O4IICi8bEzj9CaCH6ps4R_-2wP-xtRSuEyZBfMcH9_9_jk2xoacmDjYnUdGSKKUUKGGNXNrBALNEB8M1hHwxvPnxXW1Lj_R9ZltXEVUdb6lXkyTYaUT3o4F9YNqKkJcSJG0_xvzkjlINtz5b8U6zZW"/>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Distributed Ledger Hub</h4>
+<p class="text-body-sm text-on-surface-variant font-mono">12 Nodes • 3 Credits</p>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-lg overflow-hidden mb-4 bg-surface-container-low ring-1 ring-outline-variant/15 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Abstract visualization of a massive server room with rows of dark racks glowing with intense blue and violet status LEDs. Volumetric light effects pierce through a digital haze, creating a sense of immense scale and processing power. This professional dark-mode render emphasizes high-performance data center architecture with a clean, industrial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8Xpc5623Sti31SElqxw55e7Rb75HNTGOyp6giJT01xXoK6RXWlOyrwbGJJRrshkTM2e4CJ-qUz49Rwvdm7F_lHQ5N013HmiN1Np9mNopFOk1IXz1Nudjx-H4_KfXlVSyn6eEK-02jTBJk1MGCpkzIxJkdo-vZYAysb4Eh9myVZyqrkPPD44RdDqZ_4ggfWY8iYz5zk2-8GUU8M2mVgeRnafIPn8nNQSphrKS4jPMQyNr_Osjr27rkmEvrjirYwv20eptNAOUsFKlL"/>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Cloud Native Data Lake</h4>
+<p class="text-body-sm text-on-surface-variant font-mono">38 Nodes • 8 Credits</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-lg overflow-hidden mb-4 bg-surface-container-low ring-1 ring-outline-variant/15 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A stylized technical rendering of a high-speed microchip architecture. Golden and violet light pulses through intricate pathways against a midnight blue textured surface. The mood is precise and authoritative, highlighting advanced semiconductor design or low-latency system diagrams in a futuristic luminescent style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQzCVwDEzVEc8l7yY1b6KcMPk6LmEvFP4yBW4sA2XhOgjUsTvSPluBmOzfHDIEaANB28X3RPOLKM3f7Mo6Yo4a-6bjdtNztauu6EykyBsNb3o73KB4uWkXuaNXIx26N3usmM9eRsTLrGf8Ys9oMYw24XC_JAIi6hjT1gWAYJhQWCYiRj-Fgf7GSGPzqR3aNmDrKsvAzQtfSyxzdoU-S3uyAq6MFPOtgtwlN0sxVkn8-sS0VDwzPGxK1S0RxwLN-TZEp-22Yuqar5aH"/>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Real-time Fraud Engine</h4>
+<p class="text-body-sm text-on-surface-variant font-mono">15 Nodes • 4 Credits</p>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-video rounded-lg overflow-hidden mb-4 bg-surface-container-low ring-1 ring-outline-variant/15 relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A cinematic low-angle shot of a digital control room with multiple transparent glass displays showing complex global network maps. The maps are rendered in vibrant neon purple and cyan, casting a soft glow on a minimalist charcoal-gray interior. This aesthetic represents a sophisticated command and control center for global infrastructure operations." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDihQfm695zn-5YVB43uYwSNKHXs6feeK2VLuEvGfQjOu94Hpl5Fh0lb59P2ipWPmwMxXy2l6iFiTIHtW2j42EGeerZ2JnFoiC1Eeq5tGqziO72tyezQcH8ox9Xb78jo5FYv06VK5y_hRqo2n2aVBr5eKIhHZSnBOTNKzHhzL_M1cVSQ8BfmbiLtJzCHntNWhEQLNCx0eiqM08WwnAIXvFZD_Qd4BBPTNzSjd82Ns40JyRfdM8Ia21iUVyRcvejeww1DeOqbqrLCZeU"/>
+</div>
+<h4 class="font-bold text-on-surface group-hover:text-primary transition-colors">Edge Mesh Network</h4>
+<p class="text-body-sm text-on-surface-variant font-mono">112 Nodes • 12 Credits</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-surface-container-lowest flex flex-col items-center justify-center gap-4">
+<div class="font-display font-bold text-on-surface flex items-center gap-2">
+<span class="w-6 h-6 bg-primary rounded-sm"></span>
+            FlowGen AI
+        </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body text-body-sm" href="#">Status</a>
+</div>
+<p class="font-body text-body-sm text-on-surface-variant opacity-80 mt-4">© 2024 FlowGen AI. Engineered for Precision.</p>
+</footer>
+</body></html>
